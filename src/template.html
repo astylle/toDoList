@@ -1,11 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>taskMe</title>
 </head>
 <body>
-    
+    <div class="title" id="title">All Tasks</div>
+    <div class="sideBar">
+        <button id="allProjects" class="projects"> All Projects </button>
+        <button id="newProject" class="projects"> New Project </button>
+    </div>
+    <div class="form">
+        <form id="taskForm">
+            <input type="text" id="taskName">
+            <input type="text" id="taskDescription">
+            <select id="priority">
+                <option value="High">High</option>
+                <option value="Mid">Mid</option>
+                <option value="Low">Low</option>
+                <option value="Completed">Completed</option>
+            </select>
+            <input type="date" id="taskDate">
+            <button type="submit">submit</button>
+        </form> 
+    </div>    
+    <div>    
+        <table id="taskList" class="table"></table>
+    </div>
 </body>
 </html>
