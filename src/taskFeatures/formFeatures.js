@@ -1,4 +1,7 @@
-import form, { getList } from "../index";
+import form from "../index";
+import { getProjectName } from "./newProject";
+
+let projectName = getProjectName;
 
 let taskList = document.getElementById("taskList");
 const key = "taskList";
@@ -26,7 +29,7 @@ export function formCollectInfo(e){
     e.preventDefault();
 
     //collects form data
-    const taskCat = getList();
+    const taskCat = projectName();
     const taskName = document.getElementById("taskName").value;
     const taskDesc = document.getElementById("taskDescription").value;
     const taskDate = document.getElementById("taskDate").value;
@@ -46,16 +49,11 @@ export function formCollectInfo(e){
     form.reset()
 };
 
-//takes info from the form
-// form.addEventListener("submit", formCollectInfo(e))
-
-// //creates task
-// createTask();
-
-//can probably turn this into function factory
-
 export function displayAllTasks(){
+    //clear the task list and then display all of the tasks.
+    //need to add a "change category to all tasks"
     taskList.innerHTML="";
+
     storedArray.forEach(task => {
         console.log("task name is: " + task.taskName);
         createTask(task);
@@ -76,7 +74,7 @@ export function displayExistingTasks (currentList){
 
 
 
- function createTask(task){
+function createTask(task){
     const taskObject = task;
 
     const displayTask = document.createElement("tr");

@@ -9,9 +9,14 @@
 </head>
 <body>
     <div class="title" id="title">All Tasks</div>
-    <div class="sideBar">
+    <div class="sideBar" id="sideBar">
         <button id="all Tasks" class="allTasks"> All Tasks </button>
-        <button id="newProject" class="projects"> New Project </button>
+        <form id="newProject" autocomplete="off">
+            <input type="text" id="projectName">
+            <button type="submit">Submit New Project</button>
+        </form>
+        <div id="projectList"></div>
+        <!-- <button id="newProject" class="projects"> New Project </button> -->
         <button id="clearTasks" class="clearTasks"> Clear Local Storage</button>
     </div>
     <div class="form">

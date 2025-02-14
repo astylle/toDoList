@@ -1,40 +1,25 @@
 import './style.css';
-import {displayTask} from "./taskFeatures/existingTasks";
-import { formCollectInfo, displayExistingTasks,displayAllTasks} from './taskFeatures/formFeatures';
+import { createNewProject, getProjectName } from './taskFeatures/newProject';
+import { formCollectInfo, displayExistingTasks, displayAllTasks} from './taskFeatures/formFeatures';
 
-const defaultList = "All Tasks";
-let currentList = defaultList;
-let title = document.getElementById("title");
 
+let projectForm = document.getElementById("newProject");
+projectForm.addEventListener("submit", createNewProject);
 
 let form = document.getElementById("taskForm");
 form.addEventListener("submit", formCollectInfo);
-displayExistingTasks();
 
+displayExistingTasks;
 
 let buttonsAllTasks = document.querySelector(".allTasks");
 buttonsAllTasks.addEventListener("click", (e)=>{
-    title.innerHTML="All Tasks"
-    displayAllTasks(currentList);
+    title.innerHTML="All Tasks";
+    
+    displayAllTasks(getProjectName);
+    console.log("display all tasks");
 });
 
-let buttonsProject = document.querySelectorAll(".projects");
 
 
-buttonsProject.forEach(buttonsProject => {
-    buttonsProject.addEventListener("click", (e) => { 
-        currentList = e.target.textContent;        
-        title.innerHTML= currentList;
-        displayExistingTasks(currentList);
-        
-    });
-}); 
-
-
-
-
-export function getList(){
-    return currentList;
-};
 
 export default form;
