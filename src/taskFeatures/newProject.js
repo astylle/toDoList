@@ -27,21 +27,24 @@ export function createNewProject(e){
     displayExistingTasks(currentList);
     getProjectName();
 }
-
+//changes the title of the page 
 function changeTabName(projectName){
     title.innerHTML = projectName;
 }
 
+//pulls tasks from local storage by using the display existing task function 
 function changeTab(projectName){
     displayExistingTasks(projectName);
 }
 
-function createProjectTab(projectName){
+//creates 
+export function createProjectTab(projectName){
     let tab = document.createElement("button");
     tab.innerHTML = projectName;    
     tab.onclick = function(){changeTab(projectName);}
     sideBar.appendChild(tab);
 }
+
 
 // function updateTitle(e){
 //     let categoryText = e.target.textContent;        
@@ -50,7 +53,9 @@ function createProjectTab(projectName){
 //     console.log("display existing tasks");
 // }
 
-
+export function getTitle(){
+    return title;
+}
 export function getProjectName(){
     return currentList;
 }

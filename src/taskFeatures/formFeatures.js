@@ -1,5 +1,5 @@
 import form from "../index";
-import { getProjectName } from "./newProject";
+import { getProjectName,createProjectTab } from "./newProject";
 
 let projectName = getProjectName;
 
@@ -47,6 +47,22 @@ export function formCollectInfo(e){
 
     createTask(task)
     form.reset()
+};
+
+export function displayProjectTabs(){
+    let taskCatList = [];
+
+    storedArray.forEach(task =>{
+        taskCatList.push(task.taskCat);
+    })
+    console.log(taskCatList);
+    let uniqueTaskCatList = [...new Set(taskCatList)];
+    console.log(uniqueTaskCatList);
+    uniqueTaskCatList.forEach(task=>{
+        if(task != "All Tasks"){
+            createProjectTab(task);
+        };
+    })
 };
 
 export function displayAllTasks(){
